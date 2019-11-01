@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.poy.chatters">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".views.AddContact"></activity>
+        <activity android:name=".views.Profile" />
+        <activity android:name=".views.Register" />
+        <activity
+            android:name=".views.Login"
+            android:launchMode="singleTop"
+            android:noHistory="true" />
+        <activity android:name=".views.Notifications" />
+        <activity android:name=".views.FriendProfile" />
+        <activity
+            android:name=".views.Chat"
+            android:launchMode="singleTop"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <service
+            android:name=".services.AppService"
+            android:enabled="true"
+            android:exported="true"
+            android:stopWithTask="false" />
+
+        <receiver
+            android:name=".services.AppReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.mys3soft.mys3chat.restartservice" />
+            </intent-filter>
+        </receiver>
+    </application>
+
+</manifest>
